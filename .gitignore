@@ -1,0 +1,24 @@
+# Environment and Database
+.env
+db.sqlite3
+
+# Python
+__pycache__/
+*.pyc
+*.so
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Model files
+**/fine_tuned_model/
+Backend_new/fine_tuned_model/
+**/model.safetensors
+**/tokenizer.json
+**/vocab.json
+**/merges.txt
+
+# Knowledge Base
+Backend_new/knowledge_base/*.json

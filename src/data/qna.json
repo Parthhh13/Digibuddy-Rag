@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": 1,
+    "question": "How do I create an email account?",
+    "answer": "Just go to gmail.com, click 'Create Account', and follow the steps. DigiBuddy tip: Keep your password safe and write it down!"
+  },
+  {
+    "id": 2,
+    "question": "What's the difference between Wi-Fi and internet?",
+    "answer": "Wi-Fi is like the invisible bridge that connects your device to the internet. Internet is the actual network of information you access!"
+  },
+  {
+    "id": 3,
+    "question": "How do I download something safely?",
+    "answer": "Only download from trusted websites! Look for the download button, click it, and your browser will usually save it to your Downloads folder."
+  },
+  {
+    "id": 4,
+    "question": "What is cloud storage?",
+    "answer": "Cloud storage is like having a magic locker on the internet where you can store your files. Google Drive, iCloud, and Dropbox are popular examples!"
+  },
+  {
+    "id": 5,
+    "question": "How do I stay safe online?",
+    "answer": "Never share personal info with strangers, use strong passwords, and be careful what you click on. Think before you share!"
+  },
+  {
+    "id": 6,
+    "question": "What is a virus?",
+    "answer": "A computer virus is like a digital cold that can make your computer sick. Use antivirus software and avoid suspicious downloads to stay protected!"
+  }
+]

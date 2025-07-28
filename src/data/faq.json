@@ -1,0 +1,28 @@
+
+[
+  {
+    "id": 1,
+    "question": "What is a computer?",
+    "answer": "A computer is an electronic device that processes information. It's like a super-smart calculator that can do many tasks - from browsing the internet to playing games!"
+  },
+  {
+    "id": 2,
+    "question": "What is the internet?",
+    "answer": "The internet is like a giant library that connects computers worldwide. You can access websites, send emails, and chat with people anywhere!"
+  },
+  {
+    "id": 3,
+    "question": "What is a browser?",
+    "answer": "A browser is like your car to explore the internet — Chrome, Firefox, Safari, or Edge are some examples. It helps you visit websites!"
+  },
+  {
+    "id": 4,
+    "question": "What is an email?",
+    "answer": "Email is like digital mail! You can send messages, photos, and files to anyone with an email address instantly."
+  },
+  {
+    "id": 5,
+    "question": "What is a password?",
+    "answer": "A password is like a secret key that protects your accounts. Make it strong with letters, numbers, and symbols!"
+  }
+]

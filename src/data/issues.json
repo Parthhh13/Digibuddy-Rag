@@ -1,0 +1,28 @@
+
+[
+  {
+    "id": 1,
+    "question": "My computer is running slow",
+    "answer": "Try restarting your computer first! If it's still slow, close programs you're not using and clear your browser cache. Think of it like giving your computer a good rest!"
+  },
+  {
+    "id": 2,
+    "question": "I forgot my password",
+    "answer": "Don't worry! Look for 'Forgot Password' on the login page. You'll get an email to reset it. Always write down passwords in a safe place!"
+  },
+  {
+    "id": 3,
+    "question": "My internet isn't working",
+    "answer": "First, check if your Wi-Fi is connected. Try turning your router off for 30 seconds, then turn it back on. It's like giving it a quick nap!"
+  },
+  {
+    "id": 4,
+    "question": "I can't find my files",
+    "answer": "Try searching for the file name in your computer's search bar. Files might be in Downloads, Documents, or Desktop folders."
+  },
+  {
+    "id": 5,
+    "question": "My screen looks weird",
+    "answer": "Check if your screen resolution is correct. Right-click on your desktop and look for 'Display settings' to adjust it."
+  }
+]
