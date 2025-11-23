@@ -265,25 +265,43 @@ Reminding them that if they are in immediate danger, they must contact local eme
             context = ""
             sources = []
             if relevant_docs:
-                context = "\n\nRelevant information from our knowledge base:\n"
-                for doc in relevant_docs:
-                    context += f"\n- {doc['content']}"
+                context = "\n\n=== RELEVANT INFORMATION FROM KNOWLEDGE BASE ===\n"
+                for i, doc in enumerate(relevant_docs, 1):
+                    context += f"\n[Source {i}: {doc['source']}]\n{doc['content']}\n"
                     sources.append(doc['source'])
+                context += "\n=== END OF KNOWLEDGE BASE CONTEXT ===\n"
+                context += "\nIMPORTANT: When you use information from the knowledge base above, you MUST:\n"
+                context += "1. Mention that you're referencing information from your knowledge base\n"
+                context += "2. Cite the source(s) clearly in your response\n"
+                context += "3. Use phrases like 'According to our mental health resources' or 'Based on our knowledge base'\n"
             
-            formatted_message = f"{system_message}\n{context}\n\nUser Question: {message}\n\nYour simple response:"
+            formatted_message = f"{system_message}\n{context}\n\nUser Question: {message}\n\nYour response (remember to cite sources if you used knowledge base information):"
             logger.info(f"Sending message to Gemini: {message[:100]}...")
             response = model.generate_content(formatted_message)
 
             # Add source attribution if sources were used
             response_text = response.text
             if sources:
-                response_text += f"\n\nThis information comes from: {', '.join(sources)}"
+                # Check if sources are already mentioned in the response
+                sources_mentioned = any(source.lower() in response_text.lower() for source in sources)
+                if not sources_mentioned:
+                    # Add formatted citation
+                    unique_sources = list(set(sources))
+                    if len(unique_sources) == 1:
+                        response_text += f"\n\n📚 *Source: {unique_sources[0]}*"
+                    else:
+                        response_text += f"\n\n📚 *Sources: {', '.join(unique_sources)}*"
+                else:
+                    # Sources already mentioned, just add a note
+                    response_text += f"\n\n📚 *Referenced from knowledge base*"
 
             if response.text:
                 logger.info("Successfully received response from Gemini")
                 return {
                     "response": response_text,
-                    "status": "success"
+                    "status": "success",
+                    "sources": sources if sources else None,  # Include sources in response
+                    "used_knowledge_base": len(sources) > 0  # Flag indicating if KB was used
                 }
             
             logger.error("Received empty response from Gemini")

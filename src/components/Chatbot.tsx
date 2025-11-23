@@ -56,10 +56,21 @@ const Chatbot = () => {
         throw new Error(response.error || 'Failed to get response');
       }
 
+      // Format response with sources if available
+      let responseText = response.response;
+      if (response.used_knowledge_base && response.sources && response.sources.length > 0) {
+        // Sources are already included in response text, but we can enhance display
+        const uniqueSources = [...new Set(response.sources)];
+        if (uniqueSources.length > 0 && !responseText.includes('📚')) {
+          // Add source indicator if not already present
+          responseText += `\n\n📚 *Based on: ${uniqueSources.join(', ')}*`;
+        }
+      }
+
       // Add bot response
       const botMessage: ChatMessage = {
         id: Date.now() + 1,
-        text: response.response,
+        text: responseText,
         isUser: false,
         timestamp: new Date()
       };
@@ -124,7 +135,7 @@ const Chatbot = () => {
                   ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white' 
                   : 'bg-white text-gray-800 shadow-md border'
               }`}>
-                <p className="leading-relaxed">{message.text}</p>
+                <p className="leading-relaxed whitespace-pre-wrap">{message.text}</p>
                 <p className={`text-xs mt-2 ${
                   message.isUser ? 'text-purple-100' : 'text-gray-500'
                 }`}>

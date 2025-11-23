@@ -11,6 +11,8 @@ export interface ChatResponse {
   response: string;
   status: 'success' | 'error';
   error?: string;
+  sources?: string[] | null;
+  used_knowledge_base?: boolean;
 }
 
 export const chatService = {
