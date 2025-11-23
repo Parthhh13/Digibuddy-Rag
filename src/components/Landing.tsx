@@ -1,68 +1,13 @@
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, Wrench, MessageCircle, LogOut, User } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
-import { useToast } from "@/components/ui/use-toast";
+import { BookOpen, Wrench, MessageCircle } from "lucide-react";
 
 const Landing = () => {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
-  const { toast } = useToast();
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      toast({
-        title: "Signed out successfully",
-        description: "Come back soon!",
-      });
-    } catch (error: any) {
-      toast({
-        title: "Error signing out",
-        description: error.message,
-        variant: "destructive",
-      });
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col items-center justify-center p-6">
-      {/* Auth Controls */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="absolute top-6 right-6"
-      >
-        {user ? (
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center bg-white rounded-full px-4 py-2 shadow-lg">
-              <User size={16} className="text-gray-600 mr-2" />
-              <span className="text-sm text-gray-700">
-                {user.user_metadata?.full_name || user.email}
-              </span>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleSignOut}
-              className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <LogOut size={18} className="text-gray-600" />
-            </motion.button>
-          </div>
-        ) : (
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate("/auth")}
-            className="bg-white rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-gray-700"
-          >
-            Sign In
-          </motion.button>
-        )}
-      </motion.div>
 
       <div className="max-w-2xl mx-auto text-center">
         {/* Avatar */}
@@ -112,13 +57,10 @@ const Landing = () => {
           className="mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">DigiBuddy</span> 👋
+            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">DigiBuddy</span>, Your Mental Health Assistant 👋
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-            {user 
-              ? `Welcome back, ${user.user_metadata?.full_name?.split(' ')[0] || 'friend'}! Ready to explore the digital world?`
-              : "Your tech-savvy buddy to explore the digital world!"
-            }
+            Your supportive companion for mental health and well-being!
           </p>
         </motion.div>
 
@@ -132,23 +74,23 @@ const Landing = () => {
           {[
             {
               icon: BookOpen,
-              title: "📘 Learn Basics",
-              subtitle: "Digital fundamentals made simple",
-              path: user ? "/faq" : "/auth",
+              title: "📘 Learn About Mental Health",
+              subtitle: "Understanding wellness and self-care",
+              path: "/faq",
               gradient: "from-green-400 to-blue-500"
             },
             {
               icon: Wrench,
-              title: "🔧 Fix a Problem",
-              subtitle: "Quick solutions for common issues",
-              path: user ? "/issues" : "/auth",
+              title: "💚 Get Support",
+              subtitle: "Helpful strategies for common concerns",
+              path: "/issues",
               gradient: "from-yellow-400 to-orange-500"
             },
             {
               icon: MessageCircle,
-              title: "💬 Ask a Question",
-              subtitle: "Chat with me directly",
-              path: user ? "/chat" : "/auth",
+              title: "💬 Talk to Me",
+              subtitle: "Chat about how you're feeling",
+              path: "/chat",
               gradient: "from-purple-400 to-pink-500"
             }
           ].map((item, index) => (
@@ -174,9 +116,6 @@ const Landing = () => {
                 </motion.div>
                 <h3 className="text-xl font-bold">{item.title}</h3>
                 <p className="text-sm opacity-90">{item.subtitle}</p>
-                {!user && (
-                  <p className="text-xs opacity-75">(Sign in required)</p>
-                )}
               </div>
             </motion.button>
           ))}
@@ -189,7 +128,7 @@ const Landing = () => {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-12 text-gray-500"
         >
-          <p>Ready to become a digital expert? Let's start exploring! ✨</p>
+          <p>Ready to take care of your mental health? Let's start your wellness journey! ✨</p>
         </motion.div>
       </div>
     </div>

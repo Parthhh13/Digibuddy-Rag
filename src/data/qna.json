@@ -1,33 +1,32 @@
-
 [
   {
     "id": 1,
-    "question": "How do I create an email account?",
-    "answer": "Just go to gmail.com, click 'Create Account', and follow the steps. DigiBuddy tip: Keep your password safe and write it down!"
+    "question": "How can I improve my mood?",
+    "answer": "Try engaging in activities you enjoy, spending time in nature, connecting with loved ones, getting regular exercise, practicing gratitude, and ensuring you're getting enough sleep. Small positive actions can make a big difference."
   },
   {
     "id": 2,
-    "question": "What's the difference between Wi-Fi and internet?",
-    "answer": "Wi-Fi is like the invisible bridge that connects your device to the internet. Internet is the actual network of information you access!"
+    "question": "What's the difference between feeling sad and being depressed?",
+    "answer": "Feeling sad is a normal emotion that comes and goes, usually in response to specific events. Depression is a mental health condition where sadness, loss of interest, and other symptoms persist for weeks or longer and significantly impact daily functioning."
   },
   {
     "id": 3,
-    "question": "How do I download something safely?",
-    "answer": "Only download from trusted websites! Look for the download button, click it, and your browser will usually save it to your Downloads folder."
+    "question": "How do I practice mindfulness?",
+    "answer": "Mindfulness involves paying attention to the present moment without judgment. You can practice through meditation, deep breathing exercises, or simply focusing on your current activity. Start with just a few minutes daily and gradually increase."
   },
   {
     "id": 4,
-    "question": "What is cloud storage?",
-    "answer": "Cloud storage is like having a magic locker on the internet where you can store your files. Google Drive, iCloud, and Dropbox are popular examples!"
+    "question": "When should I seek professional help?",
+    "answer": "Consider seeking professional help if your mental health concerns persist for weeks, significantly interfere with daily life, cause distress, or if you're having thoughts of self-harm. It's always okay to reach out for support, even for milder concerns."
   },
   {
     "id": 5,
-    "question": "How do I stay safe online?",
-    "answer": "Never share personal info with strangers, use strong passwords, and be careful what you click on. Think before you share!"
+    "question": "How can I support someone with mental health issues?",
+    "answer": "Listen without judgment, offer emotional support, encourage them to seek professional help if needed, and be patient. Avoid trying to 'fix' them. Simply being present and showing you care can make a significant difference."
   },
   {
     "id": 6,
-    "question": "What is a virus?",
-    "answer": "A computer virus is like a digital cold that can make your computer sick. Use antivirus software and avoid suspicious downloads to stay protected!"
+    "question": "What are some quick stress relief techniques?",
+    "answer": "Quick stress relief includes deep breathing (inhale for 4 counts, hold for 4, exhale for 4), taking a short walk, listening to calming music, doing a few stretches, or practicing the 5-4-3-2-1 grounding technique. Find what works best for you."
   }
 ]

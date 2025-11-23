@@ -37,9 +37,9 @@ const Issues = () => {
           </motion.button>
           <div>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-              🔧 Fix a Problem
+              💚 Get Support
             </h1>
-            <p className="text-gray-600 mt-2">Quick solutions for common tech troubles!</p>
+            <p className="text-gray-600 mt-2">Helpful strategies for common mental health concerns!</p>
           </div>
         </motion.div>
 
@@ -107,9 +107,9 @@ const Issues = () => {
           className="text-center mt-12"
         >
           <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Problem not listed here? 🤷‍♀️</h3>
+            <h3 className="text-2xl font-bold mb-4">Need more support? 🤷‍♀️</h3>
             <p className="mb-6 opacity-90">
-              Don't worry! Describe your issue to me and I'll try my best to help you out.
+              Don't worry! Share what you're going through and I'll provide supportive guidance.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -117,7 +117,7 @@ const Issues = () => {
               onClick={() => navigate("/chat")}
               className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
             >
-              💬 Chat with DigiBuddy
+              💬 Chat with Me
             </motion.button>
           </div>
         </motion.div>

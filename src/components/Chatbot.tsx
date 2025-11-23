@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
 import ChatInput from "./ChatInput";
 import SuggestionButtons from "./SuggestionButtons";
 import { chatService, type ChatMessage } from "@/services/chatService";
@@ -10,12 +9,11 @@ import { useToast } from "@/components/ui/use-toast";
 
 const Chatbot = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const { toast } = useToast();
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 1,
-      text: `Hi there! 👋 I'm DigiBuddy, your friendly digital guide. What would you like to know about the digital world?`,
+      text: `Hi there! 👋 I'm here to support you with your mental health and well-being. How are you feeling today?`,
       isUser: false,
       timestamp: new Date()
     }
@@ -24,10 +22,10 @@ const Chatbot = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const suggestions = [
-    "How do I create an email account?",
-    "What is cloud storage?",
-    "How do I stay safe online?",
-    "What's the difference between Wi-Fi and internet?"
+    "I'm feeling anxious",
+    "How can I manage stress?",
+    "I'm having trouble sleeping",
+    "What are some self-care tips?"
   ];
 
   const scrollToBottom = () => {
@@ -105,7 +103,7 @@ const Chatbot = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-xl mr-3">
               🤖
             </div>
-            <h1 className="text-2xl font-bold text-gray-800">Chat with DigiBuddy</h1>
+            <h1 className="text-2xl font-bold text-gray-800">Mental Health Support Chat</h1>
           </div>
         </div>
       </motion.div>

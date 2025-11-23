@@ -1,14 +1,14 @@
-# DigiBuddy Chat Guide
+# Mental Health Assistant Chatbot
 
-A digital literacy chatbot that helps users understand technology concepts using Google's Gemini AI with RAG (Retrieval-Augmented Generation) capabilities.
+A mental health support chatbot that provides guidance and information about mental health and well-being using Google's Gemini AI with RAG (Retrieval-Augmented Generation) capabilities.
 
 ## Project Overview
 
-DigiBuddy is an AI-powered chatbot designed to explain digital concepts in simple terms. It uses:
+Mental Health Assistant is an AI-powered chatbot designed to provide supportive mental health guidance. It uses:
 - Gemini API for natural language processing
 - RAG (Retrieval-Augmented Generation) for context-aware responses
-- A knowledge base focused on digital literacy
-- Streaming responses for better user experience
+- A knowledge base focused on mental health and wellness
+- Supportive, evidence-informed responses for better user experience
 
 ## Tech Stack
 
@@ -28,7 +28,7 @@ DigiBuddy is an AI-powered chatbot designed to explain digital concepts in simpl
 ## Project Structure
 
 ```
-digibuddy-chat-guide/
+mental-health-chatbot/
 ├── Backend_new/
 │   ├── chat_api/
 │   │   ├── services/
@@ -37,7 +37,7 @@ digibuddy-chat-guide/
 │   │   ├── views.py              # API endpoints
 │   │   └── urls.py
 │   ├── knowledge_base/           # RAG document storage
-│   └── digibuddy/               # Django settings
+│   └── digibuddy/               # Django settings (project name)
 ├── src/
 │   ├── components/
 │   │   ├── Chatbot.tsx         # Main chat interface

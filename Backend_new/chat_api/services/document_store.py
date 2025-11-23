@@ -44,44 +44,67 @@ class DocumentStore:
 
     def _get_embedding(self, text: str) -> List[float]:
         """Get embedding for text using Gemini API"""
-        # Use Gemini's embedding model
-        embedding_model = "models/embedding-001"
-        result = genai.embed_content(
-            model=embedding_model,
-            content=text,
-            task_type="retrieval_query"
-        )
-        return result['embedding']
+        try:
+            # Use Gemini's embedding model
+            embedding_model = "models/embedding-001"
+            result = genai.embed_content(
+                model=embedding_model,
+                content=text,
+                task_type="retrieval_query"
+            )
+            return result['embedding']
+        except Exception as e:
+            # If embedding fails (e.g., quota exceeded), raise the error
+            raise e
 
     def get_relevant_chunks(self, query: str, top_k: int = 2) -> List[Dict]:
         """Get the most relevant document chunks for a query"""
-        query_embedding = self._get_embedding(query)
+        # If no documents, return empty list
+        if not self.documents:
+            return []
         
-        # Compute embeddings for documents if not already computed
-        for doc in self.documents:
-            if doc.get("embedding") is None:
-                doc["embedding"] = self._get_embedding(doc["content"])
-        
-        # Compute similarities
-        def compute_similarity(doc_embedding):
-            # Simple dot product similarity
-            return sum(q * d for q, d in zip(query_embedding, doc_embedding))
-        
-        # Sort documents by similarity
-        scored_docs = [
-            (compute_similarity(doc["embedding"]), doc)
-            for doc in self.documents
-        ]
-        scored_docs.sort(reverse=True)
-        
-        # Return top_k most relevant documents
-        return [
-            {
-                "content": doc["content"],
-                "source": doc["source"],
-                "metadata": doc.get("metadata", {}),
-                "similarity": score
-            }
-            for score, doc in scored_docs[:top_k]
-            if score > 0.7  # Only include if similarity is high enough
-        ]
+        try:
+            query_embedding = self._get_embedding(query)
+            
+            # Compute embeddings for documents if not already computed
+            for doc in self.documents:
+                if doc.get("embedding") is None:
+                    try:
+                        doc["embedding"] = self._get_embedding(doc["content"])
+                    except Exception:
+                        # If embedding fails for a document, skip it
+                        continue
+            
+            # Compute similarities
+            def compute_similarity(doc_embedding):
+                if doc_embedding is None:
+                    return 0.0
+                # Simple dot product similarity
+                return sum(q * d for q, d in zip(query_embedding, doc_embedding))
+            
+            # Sort documents by similarity
+            scored_docs = [
+                (compute_similarity(doc.get("embedding")), doc)
+                for doc in self.documents
+                if doc.get("embedding") is not None
+            ]
+            scored_docs.sort(reverse=True)
+            
+            # Return top_k most relevant documents
+            return [
+                {
+                    "content": doc["content"],
+                    "source": doc["source"],
+                    "metadata": doc.get("metadata", {}),
+                    "similarity": score
+                }
+                for score, doc in scored_docs[:top_k]
+                if score > 0.7  # Only include if similarity is high enough
+            ]
+        except Exception as e:
+            # If embedding fails (e.g., quota exceeded), return empty list
+            # This allows the chatbot to work without document context
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(f"Failed to get embeddings for document retrieval: {e}")
+            return []

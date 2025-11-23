@@ -1,28 +1,27 @@
-
 [
   {
     "id": 1,
-    "question": "What is a computer?",
-    "answer": "A computer is an electronic device that processes information. It's like a super-smart calculator that can do many tasks - from browsing the internet to playing games!"
+    "question": "What is mental health?",
+    "answer": "Mental health refers to your emotional, psychological, and social well-being. It affects how you think, feel, and act. Just like physical health, mental health is important at every stage of life and can change over time."
   },
   {
     "id": 2,
-    "question": "What is the internet?",
-    "answer": "The internet is like a giant library that connects computers worldwide. You can access websites, send emails, and chat with people anywhere!"
+    "question": "What is anxiety?",
+    "answer": "Anxiety is a normal response to stress or danger. It's your body's way of preparing to face a challenge. However, when anxiety becomes excessive or persistent, it can interfere with daily life. Symptoms may include worry, restlessness, and physical symptoms like rapid heartbeat."
   },
   {
     "id": 3,
-    "question": "What is a browser?",
-    "answer": "A browser is like your car to explore the internet — Chrome, Firefox, Safari, or Edge are some examples. It helps you visit websites!"
+    "question": "What is depression?",
+    "answer": "Depression is more than just feeling sad. It's a mental health condition that affects your mood, thoughts, and daily functioning. Common symptoms include persistent sadness, loss of interest in activities, changes in sleep or appetite, and feelings of hopelessness."
   },
   {
     "id": 4,
-    "question": "What is an email?",
-    "answer": "Email is like digital mail! You can send messages, photos, and files to anyone with an email address instantly."
+    "question": "What is self-care?",
+    "answer": "Self-care is any activity you do to take care of your physical, mental, and emotional health. This can include getting enough sleep, eating well, exercising, practicing relaxation techniques, spending time with loved ones, or doing activities you enjoy."
   },
   {
     "id": 5,
-    "question": "What is a password?",
-    "answer": "A password is like a secret key that protects your accounts. Make it strong with letters, numbers, and symbols!"
+    "question": "How can I manage stress?",
+    "answer": "Stress management techniques include deep breathing exercises, regular physical activity, getting enough sleep, practicing mindfulness or meditation, talking to someone you trust, and taking breaks when needed. Finding what works for you is key."
   }
 ]
